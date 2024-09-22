@@ -40,21 +40,22 @@ Before you begin, ensure you have the following installed on your machine:
    Clone this repository to your local machine:
 
    `git clone https://github.com/kaushald/logs-tutorial.git`  
-   `cd time-travel-system-tutorial`
+   `cd logs-tutorial`
 
-2. **Install Dependencies**
-
-   Install the necessary dependencies for the NestJS application:
-
-   `npm install`
-
-3. **Set Up ELK Stack with Docker Compose**
+2. **Set Up ELK Stack with Docker Compose**
 
    Use Docker Compose to set up Elasticsearch, Logstash, and Kibana:
 
-   `docker-compose up -d`
+   `docker compose up -d`
 
    This will start Elasticsearch on `localhost:9200`, Logstash on `localhost:5044`, and Kibana on `localhost:5601`.
+
+3. **Install Dependencies**
+
+   Install the necessary dependencies for the NestJS application:
+
+   `cd magical-misadventures-platform`  
+   `npm install`
 
 4. **Check Kibana Access**
 
@@ -64,9 +65,15 @@ Before you begin, ensure you have the following installed on your machine:
 
 1. **Start the NestJS Application**
 
-   Run the following command to start the NestJS backend in development mode:
+   Run the following command to start the NestJS backend in production mode:
 
-   `npm run start:dev`
+   On mac/linux:
+
+   `./bnd.sh`
+
+   On windows:
+
+   `bnd.bat`
 
    The application will start on `http://localhost:3000`.
 
@@ -142,7 +149,7 @@ This query retrieves all logs related to the **Potion API** endpoint, regardless
 
 To filter and analyze only the error logs for the **Potion API**:
 
-`req.url: "/potion/brew*" AND NOT res.statusCode: 200`
+`req.url: "/artifact/checkout*" AND NOT res.statusCode: 200`
 
 This query combines conditions to retrieve only the error logs where the **Potion API** was called, allowing you to analyze what went wrong.
 
